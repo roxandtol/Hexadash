@@ -1,5 +1,4 @@
-from Games.GameTest.GameTest import *
-from Games.Hexadash.Hexadash import *
+from Game.Hexadash import *
 
 
-GameTest()
+Hexadash()
