@@ -41,3 +41,17 @@ La vista de un jugador de un nivel podría ser:
 ![](https://i.imgur.com/ggSwMRi.png)
 
 La parte dentro del cuadrado verde es la parte visible por la camara
+
+
+Cada nota estandar será 250 ms +-, y la estructura de una nota en un archivo es la siguiente:
+```
+(numero de tecla),(longitud tecla en ms),(delay hasta la siguiente en ms) * cantidad de teclas.
+```
+
+Por ejemplo:
+```
+2,250,250
+1,750,500
+3,500,250
+2,750,2000
+```

@@ -1,4 +1,5 @@
 import arcade
+import arcade.gui
 from Engine.EntityManager import EntityManager
 from Engine.InputManager import *
 from Engine.SceneManager import SceneManager

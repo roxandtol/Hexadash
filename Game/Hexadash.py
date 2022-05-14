@@ -8,5 +8,4 @@ class Hexadash(Application):
 
         self.sceneManager.addScene(MainMenu(self))
         self.sceneManager.addScene(PauseMenu(self))
-
         self.run()
