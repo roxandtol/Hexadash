@@ -18,7 +18,7 @@ Depende de la precisión del toque, podras obtener:
 - 50 Puntos
 - 0 Puntos (Fallado)
 
-Cada nota tambien añadirá 1 al contador de combo, que hara que modificará la puntuación.
+Cada nota tambien añadirá 1 al contador de combo, que hara que modifíque la puntuación.
 
 Ecuación de puntuación:
 ```
