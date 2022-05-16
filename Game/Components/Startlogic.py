@@ -1,4 +1,3 @@
-from turtle import width
 from Engine.Components.Component import *
 from arcade import color
 import arcade.gui

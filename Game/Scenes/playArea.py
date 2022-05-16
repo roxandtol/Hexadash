@@ -41,6 +41,6 @@ class playArea(Scene):
     def start(self):
         self.readLevel()
         self.playLevelAudio()
-        self.playLevelBeats()
+        # self.playLevelBeats()
 
     
