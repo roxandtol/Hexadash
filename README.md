@@ -14,8 +14,6 @@ You press the button when the note starts and release it when it  ends
 
 You always need to be in the same slot. when pressing beats, and there's a combo counter that will change your score
 
---- 
-
 ## Performance:
 
 Depending on the precision of your press, you may get:
@@ -42,7 +40,7 @@ And at the end of the beatmap, you will get your numerical score + a letter, eac
 
 If you fail more than 5% of the beats in a row, the beatmap will end early
 
----
+
 ## Maps: 
 Every single beat will be 150 ms-
 
