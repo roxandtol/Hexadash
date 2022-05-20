@@ -13,24 +13,14 @@ class BeatManager(Component):
 
     def playBeat(self):
         level = self.level
-        
+
         for i in range(len(level)):
-            # Split the values in 3 
             currentLine = level[i].split(",")
-            # Remove new line and start the crono
             currentLine[2] = currentLine[2].replace("\n","")
-            self.crono.start()
-            CurrentTime = self.crono.currentTime()
-            delayTime = int(currentLine[2]) * 0.001
-            print(currentLine)
-            # # Play sounds depending of the beat
-            # while float(CurrentTime) <= float(delayTime):
-            #     if int(currentLine[0]) == 1:
-            #         print("UNO")
-            #         AudioSource.createAndPlay("Levels/Example1/beatsound1.mp3")
-            #     elif int(currentLine[0]) == 2:
-            #         print("DOS")
-            #         AudioSource.createAndPlay("Levels/Example1/beatsound2.wav")
-            #     elif int(currentLine[0]) == 3:
-            #         print("TRES")
-            #         AudioSource.createAndPlay("Levels/Example1/beatsound3.wav")
+            #0: Slot
+            #1: Beat length
+            #2: Delay till next beat
+            delayTime = int(currentLine[2])* 0.001
+            AudioSource.createAndPlay("Levels/Example1/beatsound.mp3")
+            time.sleep(float(delayTime))
+            print("beat!")
