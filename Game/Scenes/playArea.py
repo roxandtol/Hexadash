@@ -10,12 +10,13 @@ class playArea(Scene):
         self.Beat = BeatManager()
 
     def playLevelAudio(self):
-        AudioSource.createAndPlay("Levels/Example1/Example1.mp3")
-        print("Audio!")
+        PLA = threading.Thread(AudioSource.createAndPlay("Levels/Example1/Example1.ogg"))
+        print("a")
+        PLA.start()
+
 
     def start(self):
-        PLA = threading.Thread(target=self.playLevelAudio)
-        PLA.start()
+        self.playLevelAudio()
         BPL = threading.Thread(target=self.Beat.playBeat())
         BPL.start()
 
