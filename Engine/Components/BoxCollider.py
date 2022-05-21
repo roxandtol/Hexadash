@@ -10,7 +10,7 @@ class BoxCollider(Collider):
         self.height = height
         self.originalWidth = width
         self.originalHeight = height
-        self.debugSprite = arcade.Sprite("GUI/EntityComponent/Engine/Assets/Collider.png")
+        self.debugSprite = arcade.Sprite("Engine/Assets/Collider.png")
 
     def update(self):
         s = self.entity.transform.localScale
