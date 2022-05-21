@@ -2,6 +2,7 @@ from Engine.Scene import *
 from Engine.Components.AudioSource import *
 from Engine.Components.Stopwatch import *
 from Game.Components.BeatsoundManager import *
+from Engine.Components.SpriteRenderer import *
 import threading
 
 class playArea(Scene):
@@ -17,8 +18,10 @@ class playArea(Scene):
 
     def drawHexagon(self):
         Hexagon = self.entityManager.addEntity("Hexagon")
+        Hexagon.addComponent(SpriteRenderer("Game/Assets/Hexagon.png"))
 
     def start(self):
+        self.drawHexagon()
         self.playAllAudio()
 
     
