@@ -42,11 +42,11 @@ If you fail more than 5% of the beats in a row, the beatmap will end early
 
 
 ## Maps: 
-Every single beat will be 150 ms-
+The bpm of the map will be defined at the start
 
 The structure of a beatmap beat file is:
 ```
-{slot},{Beat lenght},{Delay till next beat}
+{slot},{Beats},{Beats till next one}
 ```
 And every map will be stored on a folder, and inside the folder, you'll find: 
 - Beat file (.HD)
