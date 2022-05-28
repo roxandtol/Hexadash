@@ -1,10 +1,11 @@
-from Engine.Scene import *
-from Engine.Components.AudioSource import *
-from Engine.Components.Stopwatch import *
-from Engine.Components.SpriteRenderer import *
+from Game.Components.BeatSpawn import *
 from Game.Components.Beatsound import *
 from Game.Components.BeatManager import *
 from Game.Components.LevelSelector import *
+from Engine.Components.SpriteRenderer import *
+from Engine.Components.AudioSource import *
+from Engine.Components.Stopwatch import *
+from Engine.Scene import *
 import threading
 
 class playArea(Scene):
@@ -32,7 +33,7 @@ class playArea(Scene):
         self.drawBG()
         self.playAllAudio()
         beatManager = self.entityManager.addEntity("BeatManager")
-        beatManager.addComponent(BeatManager())
+        beatManager.addComponent(BeatSpawn())
         
 
     

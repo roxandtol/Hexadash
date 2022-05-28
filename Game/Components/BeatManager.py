@@ -8,7 +8,7 @@ class BeatManager(Component):
         self.level = level.readlines()
 
     def loadKeys(self):
-        self.keyList = []
+        keyList = []
         level = self.level
 
         for i in range(len(level)):
@@ -17,8 +17,9 @@ class BeatManager(Component):
             else:
                 currentLine = level[i].split(",")                   #split into an array
                 currentLine[2] = currentLine[2].replace("\n","")    #remove newline
-                self.keyList = self.getEntityManager().addEntity("Key"+ str(i))
-                
+                keyList.append(self.getEntityManager().addEntity("Key"+ str(i)))
+
+        print(keyList)
 
 
     def start(self):
