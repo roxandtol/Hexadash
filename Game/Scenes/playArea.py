@@ -26,7 +26,7 @@ class playArea(Scene):
         Hexagon = self.entityManager.addEntity("Hexagon")
         Hexagon.addComponent(SpriteRenderer("Game/Assets/HexagonBase.png"))
         Hexagon.transform.translate(-self.app.width/2.1, 0)
-        Hexagon.transform.scale(0.8)
+        Hexagon.transform.setScale(0.8)
 
 
     def start(self):
@@ -34,7 +34,7 @@ class playArea(Scene):
         self.drawBG()
         self.playAllAudio()
         beatManager = self.entityManager.addEntity("BeatManager")
-        beatManager.addComponent(BeatSpawn())
+        beatManager.addComponent(BeatManager())
         
 
     

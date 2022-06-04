@@ -1,29 +1,33 @@
-from Engine.Scene import *
+from Engine.Scene import Scene
+
 
 class SceneManager():
     def __init__(self) -> None:
         self.scenes = []
-        self.scenesStack = []
-
-    def addScene(self, scene : Scene):
+        self.sceneStack = []
+        
+    def addScene(self,scene:Scene):
         self.scenes.append(scene)
 
     def init(self):
+        if len(self.scenes) == 0:
+            return False
         self.changeScene(0)
+        return True
 
-    def getCurrentScene(self) -> Scene:
-        return self.scenes[len(self.scenesStack) - 1]
+    def currentScene(self) -> Scene:
+        return self.sceneStack[len(self.sceneStack) - 1]
 
-    def changeScene(self, index : int):
-        while len(self.scenesStack) > 0:
+    def changeScene(self, index:int):
+        while len(self.sceneStack) > 0:
             self.popScene()
-        self.scenesStack = []
+        self.sceneStack = []
         self.pushScene(index)
 
-    def pushScene(self, index : int):
-        self.scenesStack.append(self.scenes[index])
-        self.scenes[index].start()
+    def pushScene(self,index:int):
+        self.sceneStack.append(self.scenes[index])
+        self.currentScene().start()
 
     def popScene(self):
-        scene = self.scenesStack.pop()
+        scene = self.sceneStack.pop()
         scene.close()

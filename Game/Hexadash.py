@@ -5,7 +5,7 @@ from Game.Scenes.playArea import *
 
 class Hexadash(Application):
     def __init__(self):
-        super().__init__(800,600,"Hexadash",arcade.color.BLACK)
+        super().__init__(800,600,"Hexadash")
 
         self.sceneManager.addScene(playArea(self))
         self.sceneManager.addScene(MainMenu(self))
