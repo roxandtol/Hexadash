@@ -1,14 +1,15 @@
 import arcade
-from Engine.EntityManager import *
+import arcade.gui
+from Engine.EntityManager import EntityManager
 from Engine.InputManager import *
-from Engine.SceneManager import *
+from Engine.SceneManager import SceneManager
 
 
 class Application(arcade.Window):
-    def __init__(self, width: int = 800, height: int = 600, title: str = 'Application',color:str = arcade.color.BLACK):
+    def __init__(self, width: int = 800, height: int = 600, title: str = 'Application', color:str = arcade.color.BLACK):
         super().__init__(width, height, title)
-        self.inputManager = InputManager()
         self.sceneManager = SceneManager()
+        self.inputManager = InputManager()
         self.deltaTime = 0
         arcade.set_background_color(color)
 
@@ -33,29 +34,11 @@ class Application(arcade.Window):
         self.inputManager.keyReleased(symbol)
 
     def on_mouse_motion(self, x: float, y: float, dx: float, dy: float):
-        self.inputManager.mousePos = (x,y)
-
-    def on_mouse_press(self, x: float, y: float, button: int, modifiers: int):
-        if button == 4:
-            button = 1
-        elif button == 1:
-            button = 0
-        self.inputManager.mousePressed(button)
-
-    def on_mouse_release(self, x: float, y: float, button: int, modifiers: int):
-        if button == 4:
-            button = 1
-        elif button == 1:
-            button = 0
-        self.inputManager.mouseReleased(button)
-
+        pass
 
     def run(self):
-        if self.sceneManager.init():
-            arcade.run()
-        else:
-            print("No scenes found")
-            exit()
+        self.sceneManager.init()
+        arcade.run()
 
     def exit(self):
         arcade.close_window()
