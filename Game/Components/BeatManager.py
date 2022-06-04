@@ -8,30 +8,36 @@ class BeatManager(Component):
         super().__init__("BeatManager")
         level = LevelSelector().readLevelMap()
         self.level = level.readlines()
-        self.levelLenght = len(self.level)
+        self.levelLenght = len(self.level)-1
         
         self.keyPos = []
 
     def loadKeys(self):
-        keyList = []
         level = self.level
 
         for i in range(self.levelLenght):
-            currentLine = level[i].split(",")                   #split into an array
-            currentLine[2] = currentLine[2].replace("\n","")    #remove newline
-            self.keyPos.append(currentLine[0])
-        print(keyList)
+            currentLine = level[i].split(",")
+            currentLine[2] = currentLine[2].replace("\n","")
+            self.keyPos.append(int(currentLine[0]))
 
     def spawnBeat(self):
         self.notes = [self.getEntityManager().addEntity("Note"+ str(i)) for i in range(self.levelLenght)]
         for note in self.notes:
             note.addComponent(SpriteRenderer("Game/Assets/Single.jpg", 0.5))
             note.transform.scale(0.4)
+            # for i in range(self.levelLenght):
+            #     if self.keyPos[i] == 1:
+            #         note.transform.translate(0,100)
+            #     if self.keyPos[i] == 2:
+            #         pass
+            #     else:
+            #         note.transform.translate(0,-100)
+
 
     def start(self):
         self.bpm = self.level[0]
         self.level.pop(0)
-        print(self.level)
         self.loadKeys()
+        self.spawnBeat()
     
         
