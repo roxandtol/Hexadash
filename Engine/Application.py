@@ -5,25 +5,26 @@ from Engine.SceneManager import *
 
 
 class Application(arcade.Window):
-    def __init__(self, width: int = 800, height: int = 600, title: str = 'Application'):
+    def __init__(self, width: int = 800, height: int = 600, title: str = 'Application',color:str = arcade.color.BLACK):
         super().__init__(width, height, title)
         self.inputManager = InputManager()
         self.sceneManager = SceneManager()
         self.deltaTime = 0
+        arcade.set_background_color(color)
 
     def update(self, deltaTime: float):
         self.deltaTime = deltaTime
-        entMngr = self.sceneManager.currentScene().entityManager
-        entMngr.firstUpdate()
-        entMngr.update()
-        entMngr.lateUpdate()
+        entityManager = self.sceneManager.getCurrentScene().entityManager
+        entityManager.firstUpdate()
+        entityManager.update()
+        entityManager.lateUpdate()
         self.inputManager.clearKeys()
 
     def on_draw(self):
         # Esto siempre es lo primero
         arcade.start_render()
         # Todo lo otro después
-        self.sceneManager.currentScene().entityManager.draw()
+        self.sceneManager.getCurrentScene().entityManager.draw()
 
     def on_key_press(self, symbol: int, modifiers: int):
         self.inputManager.keyPressed(symbol)
