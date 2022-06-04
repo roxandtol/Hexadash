@@ -14,6 +14,7 @@ class playArea(Scene):
         self.Beatsound = Beatsound()
         self.LevelSelector = LevelSelector()
         self.app = app
+        self.beatSpawn = BeatSpawn()
 
     def playAllAudio(self):
         PLA = threading.Thread(target=AudioSource.createAndPlay(self.LevelSelector.readAudio()))
