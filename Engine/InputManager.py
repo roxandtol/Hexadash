@@ -6,6 +6,10 @@ class InputManager():
         self.keys = {}
         self.keysDown = {}
         self.keysUp = {}
+        self.mousePos = (0,0)
+        self.mouseKeys = [False, False, False]
+        self.mouseKeysUp = [False, False, False]
+        self.mouseKeysDown = [False, False, False]
 
     def keyPressed(self, key: KeyCode):
         self.keys[key] = True
@@ -30,7 +34,25 @@ class InputManager():
             return self.keysUp[key]
         return False
 
-
     def clearKeys(self):
         self.keysDown.clear()
         self.keysUp.clear()
+        self.mouseKeysUp = [False, False, False]
+        self.mouseKeysDown = [False, False, False]
+
+    def mousePressed(self, button : int):
+        self.mouseKeys[button] = True
+        self.mouseKeysDown[button] = True
+
+    def mouseReleased(self, button : int):
+        self.mouseKeys[button] = False
+        self.mouseKeysUp[button] = True
+
+    def getMouseButton(self, button : int):
+        return self.mouseKeys[button]
+
+    def getMouseButtonDown(self, button : int):
+        return self.mouseKeysDown[button]
+
+    def getMouseButtonUp(self, button : int):
+        return self.mouseKeysUp[button]
