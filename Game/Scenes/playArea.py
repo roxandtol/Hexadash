@@ -29,7 +29,7 @@ class playArea(Scene):
 
     def start(self):
         super().start()
-        self.drawBG()
+        # self.drawBG()
         self.playAllAudio()
         beatManager = self.entityManager.addEntity("BeatManager")
         beatManager.addComponent(BeatManager())

@@ -23,13 +23,10 @@ class BeatManager(Component):
 
     def spawnBeat(self):
         self.notes = [self.getEntityManager().addEntity("Note"+ str(i)) for i in range(self.levelLenght)]
-        for note in self.notes:
-            note.addComponent(SpriteRenderer("Game/Assets/Single.jpg", 0.5))
-            note.addComponent(Beat(self))
-
-    def initialSetup(self):
-        for note in self.notes:
-            note.getComponent("Beat").InitialPos()
+        for i in range(len(self.notes)):
+            note = self.notes[i]
+            note.addComponent(SpriteRenderer("Game/Assets/Single.jpg", 0.5))  
+            note.addComponent(Beat(self,self.keyPos[i]))
 
     def start(self):
         self.bpm = self.level[0]
