@@ -8,29 +8,23 @@ class Beat(Component):
         self.width = 800
         self.height = 600
 
-    def InitialPos(self):
-        if self.keyPos == 1:
-            # self.entity.transform.translate(0,100)
-            self.entity.transform.setPosition(0,0)
-            print("test1")
-        if self.keyPos == 2:
-            print("test2")
-        else:
-            self.entity.transform.setPosition(600,800)
-            print("test3")
-
-    def update(self):
+    def setup(self):
         self.entity.transform.setScale(0.2)
         if self.keyPos == 1:
-            # self.entity.transform.translate(0,100)
-            self.entity.transform.setPosition(self.width/2,self.height/2+self.height/3)
-            print("test1")
-        if self.keyPos == 2:
-            print("test2")
+            print("1")
+            self.entity.transform.setPosition(self.width/2,self.height/2+self.height/4)
+        elif self.keyPos == 2:
+            print("2")
             self.entity.transform.setPosition(self.width/2,self.height/2)
-        else:
+        elif self.keyPos == 3:
+            print("3")   
             self.entity.transform.setPosition(self.width/2,self.height/2-self.height/4)
-            print("test3")   
+
+    def start(self):
+        self.setup()
+        # print(self.keyPos)
+        
+
 
 
 
