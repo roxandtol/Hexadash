@@ -1,5 +1,6 @@
 from Engine.Components.SpriteRenderer import *
 from Engine.Components.AudioSource import *
+from Game.Components.Beat import *
 from Game.Components.LevelSelector import *
 from Engine.Components.Component import *
 
@@ -23,24 +24,18 @@ class BeatManager(Component):
     def spawnBeat(self):
         self.notes = [self.getEntityManager().addEntity("Note"+ str(i)) for i in range(self.levelLenght)]
         for note in self.notes:
-            placeholder = 0
             note.addComponent(SpriteRenderer("Game/Assets/Single.jpg", 0.5))
-            note.transform.scale(0.4)
-            print(self.keyPos)
-            # if self.keyPos[placeholder] == 1:
-            #     note.transform.translate(0,100)
-            #     placeholder+=1 
-            # if self.keyPos[placeholder] == 2:
-            #     placeholder+=1
-            # else:
-            #     note.transform.translate(0,-100)
-            #     placeholder+=1
+            note.addComponent(Beat(self))
 
+    def initialSetup(self):
+        for note in self.notes:
+            note.getComponent("Beat").InitialPos()
 
     def start(self):
         self.bpm = self.level[0]
         self.level.pop(0)
         self.loadKeys()
         self.spawnBeat()
+
     
         

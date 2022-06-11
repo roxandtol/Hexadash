@@ -1,14 +1,10 @@
-from Engine.Components.Component import *
-
-class LevelSelector(Component):
-    def __init__(self) -> None:
-        super().__init__("LevelSelector")
-
+class LevelSelector():
+    @staticmethod
     def readLevelMap():
         file = open("Levels/Example1/Example1.HD")
 
         return file
-
+    @staticmethod
     def readAudio():
         Audio = "Levels/Example1/Example1.ogg"
 
