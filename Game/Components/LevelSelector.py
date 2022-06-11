@@ -4,12 +4,12 @@ class LevelSelector(Component):
     def __init__(self) -> None:
         super().__init__("LevelSelector")
 
-    def readLevelMap(self):
+    def readLevelMap():
         file = open("Levels/Example1/Example1.HD")
 
         return file
 
-    def readAudio(self):
+    def readAudio():
         Audio = "Levels/Example1/Example1.ogg"
 
         return Audio

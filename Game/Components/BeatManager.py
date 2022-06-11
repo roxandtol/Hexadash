@@ -6,7 +6,7 @@ from Engine.Components.Component import *
 class BeatManager(Component):
     def __init__(self) -> None:
         super().__init__("BeatManager")
-        level = LevelSelector().readLevelMap()
+        level = LevelSelector.readLevelMap()
         self.level = level.readlines()
         self.levelLenght = len(self.level)-1
         
@@ -23,15 +23,18 @@ class BeatManager(Component):
     def spawnBeat(self):
         self.notes = [self.getEntityManager().addEntity("Note"+ str(i)) for i in range(self.levelLenght)]
         for note in self.notes:
+            placeholder = 0
             note.addComponent(SpriteRenderer("Game/Assets/Single.jpg", 0.5))
             note.transform.scale(0.4)
-            # for i in range(self.levelLenght):
-            #     if self.keyPos[i] == 1:
-            #         note.transform.translate(0,100)
-            #     if self.keyPos[i] == 2:
-            #         pass
-            #     else:
-            #         note.transform.translate(0,-100)
+            print(self.keyPos)
+            # if self.keyPos[placeholder] == 1:
+            #     note.transform.translate(0,100)
+            #     placeholder+=1 
+            # if self.keyPos[placeholder] == 2:
+            #     placeholder+=1
+            # else:
+            #     note.transform.translate(0,-100)
+            #     placeholder+=1
 
 
     def start(self):
