@@ -52,3 +52,5 @@ And every map will be stored on a folder, and inside the folder, you'll find:
 - Beat file (.HD)
 - Song (.mp3, .wav or .ogg)
 - Beatsound (.mp3, .wav or .ogg)
+
+hi
